@@ -41,6 +41,7 @@ public class BinSearchTree {
     }
 
 
+
     public NoBinTree procurar(String num, NoBinTree no) {
     if (no == null){
         return null;
@@ -52,6 +53,31 @@ public class BinSearchTree {
             NoBinTree(no.getFilhoDireita(), num);
         }
     }
-            }
-    
+    return no;
+    }
+
+    }public String inOrdem() {
+        if (raiz == null) {
+            return "arvore vazia";
+        }
+
+        return inOrdem(raiz);
+    }
+
+    public String inOrdem(NoBinTree no) {
+        String retorno = "";
+
+        if(no.getFilhoEsquerda() != null) {
+            retorno += inOrdem(no.getFilhoEsquerda());
+        }
+
+        retorno += no.getValor() + " ";
+
+        if(no.getFilhoDireita() != null) {
+            retorno += inOrdem(no.getFilhoDireita());
+        }
+
+        return retorno;
+    }
+
 }
