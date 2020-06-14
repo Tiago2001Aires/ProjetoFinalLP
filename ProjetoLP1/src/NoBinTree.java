@@ -1,16 +1,22 @@
 public class NoBinTree {
 
-        private String valor;
+        private int valor;
+        private String frase;
         private NoBinTree filhoEsquerda;
         private NoBinTree filhoDireita;
+        private boolean resposta;
 
         // Acessores
-        public String getValor() {
+        public int getValor() {
             return valor;
         }
-        public void setValor(String valor) {
+        public void setValor(int valor) {
             this.valor = valor;
         }
+        public String getFrase() {
+        return frase;
+    }
+        public void setFrase(String frase) {this.frase = frase; }
         public NoBinTree getFilhoEsquerda() {
             return filhoEsquerda;
         }
@@ -23,11 +29,13 @@ public class NoBinTree {
         public void setFilhoDireita(NoBinTree filhoDireita) {
             this.filhoDireita = filhoDireita;
         }
+        public boolean isResposta() { return resposta; }
+        public void setResposta(boolean resposta) { this.resposta = resposta; }
 
-
-        // Construtores
-        public NoBinTree(String valor) {
+    // Construtores
+        public NoBinTree(int valor, String frase) {
             this.valor = valor;
+            this.frase=frase;
             this.filhoEsquerda = null;
             this.filhoDireita = null;
         }

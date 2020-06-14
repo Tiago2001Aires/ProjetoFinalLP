@@ -1,80 +1,91 @@
+import java.util.Scanner;
 public class BinSearchTree {
-    public NoBinTree raiz;
+    public NoBinTree pai;
+    Scanner ler = new Scanner(System.in);
 
 
-    public void inserir(String num, NoBinTree pai, boolean pergunta) {
-        NoBinTree classe = new NoBinTree(num);
-        if (pergunta == true) {
+    public void inserir(int numero, NoBinTree pai, String frase) {
+        pai = null;
+        if (pai.getValor() > numero) {
             if (pai.getFilhoEsquerda() == null) {
+                NoBinTree classe = new NoBinTree(numero,frase);
                 pai.setFilhoEsquerda(classe);
             } else {
-                inserir(num, pai.getFilhoEsquerda(), pergunta);
+                inserir(numero, pai.getFilhoEsquerda(), frase);
             }
-        } else if (pergunta == false) {
+        } else if (pai.getValor() < numero) {
             if (pai.getFilhoDireita() == null) {
+                NoBinTree classe = new NoBinTree(numero,frase);
                 pai.setFilhoDireita(classe);
             } else {
-                inserir(num, pai.getFilhoDireita(), pergunta);
+                inserir(numero, pai.getFilhoDireita(), frase);
             }
         }
 
     }
 
 
-    public void inserir(String num, boolean classo) {
+    public void inserir(int numero, String frase, boolean b) {
 
-        if (raiz == null) {
-            NoBinTree novo = new NoBinTree(num);
-            raiz = novo;
+        if (pai == null) {
+            NoBinTree classe = new NoBinTree(numero, frase);
+            pai = classe;
         } else
-            inserir(num, raiz, classo);
+            inserir(numero, pai, frase);
     }
 
 
-    public NoBinTree procurar(String num) {
+    public NoBinTree procurar(String numero) {
 
-        if (raiz == null) {
+        if (pai == null) {
             return null;
         } else
-            return procurar(num, raiz);
+            return procurar(numero, pai);
 
     }
 
 
 
-    public NoBinTree procurar(String num, NoBinTree no) {
-    if (no == null){
-        return null;
-    }else{
-        if (no.getFilhoEsquerda().equals(num)){
-            return procurar(num, raiz.getFilhoEsquerda());
-        }else if (no.getFilhoDireita().equals(num)){
-            return procurar(num, no.getFilhoDireita());
+    public NoBinTree procurar(String num, NoBinTree pai) {
+        System.out.println("Insira a sua resposta com sim ou nao");
+        String resposta = ler.next();
+        if (resposta == "sim"){
+            procurar(pai.getFilhoEsquerda());
+        }else if (resposta == "nao"){
+            procurar(pai.getFilhoDireita());
+        }
+        if (pai == null){
+            return null;
         }else{
-            System.out.println(no.getValor().equals(num));
-    }
-    return no;
-    }
+            if (pai.getFilhoEsquerda().equals(num)){
+                return procurar(num, pai.getFilhoEsquerda());
+            }else if (pai.getFilhoDireita().equals(num)){
+                return procurar(num, pai.getFilhoDireita());
+            }else{
+                System.out.println(pai.getValor().equals(num));
+            }
+            return pai;
+        }
 
     }public String inOrdem() {
-        if (raiz == null) {
+        if (pai == null) {
             return "arvore vazia";
         }
 
-        return inOrdem(raiz);
+        return inOrdem(pai);
     }
 
-    public String inOrdem(NoBinTree no) {
+    public String inOrdem(NoBinTree pai) {
         String retorno = "";
 
-        if(no.getFilhoEsquerda() != null) {
-            retorno += inOrdem(no.getFilhoEsquerda());
+        if(pai.getFilhoEsquerda() != null) {
+            retorno += inOrdem(pai.getFilhoEsquerda());
         }
 
-        retorno += no.getValor() + " ";
+        retorno += pai.getValor() + " ";
 
-        if(no.getFilhoDireita() != null) {
-            retorno += inOrdem(no.getFilhoDireita());
+        if(pai.getFilhoDireita() != null) {
+            retorno += inOrdem(pai.getFilhoDireita());
         }
 
         return retorno;
