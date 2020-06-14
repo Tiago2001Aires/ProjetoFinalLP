@@ -46,11 +46,12 @@ public class BinSearchTree {
     if (no == null){
         return null;
     }else{
-        if (no.getFilhoEsquerda().setFilhoEsquerda() == num){
-            return no;
+        if (no.getFilhoEsquerda().equals(num)){
+            return procurar(num, raiz.getFilhoEsquerda());
+        }else if (no.getFilhoDireita().equals(num)){
+            return procurar(num, no.getFilhoDireita());
         }else{
-            procurar(num,no.getFilhoEsquerda()&& no.getFilhoDireita());
-        }
+            System.out.println(no.getValor().equals(num));
     }
     return no;
     }

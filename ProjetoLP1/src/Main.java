@@ -24,18 +24,18 @@ private NoBinTree ramos;
 
             boolean sn;
 
-            System.out.println("s/n");
-            while (true) {
-                resposta = ler.nextLine().trim().toLowerCase();
-                if (resposta.equals("s")) {
-                    sn = true;
+            public void menu{
+                do {
+                    System.out.println("Tem de responder as perguntas com :");
+                    System.out.println("1 para sim");
+                    System.out.println("0 para nao");
+                    resposta =ler.nextLine();
 
-                } else if (resposta.equals("n")) {
-                    sn = false;
+                    switch(resposta){
 
-                } else {
-                    System.out.println("Desculpa mas a resposta deve ser s/n");
-                }
-            }
+                    }
+
+                };
+
     }
 }
