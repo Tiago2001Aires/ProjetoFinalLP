@@ -7,7 +7,7 @@ private NoBinTree ramos;
             String resposta;
             BinSearchTree teste = new BinSearchTree();
             String opcao;
-            teste.inserir("Voce pensou numa pessoa?",true);
+            teste.inserir("50","123",true);
             teste.inserir("Voce pensou num animal?",false);
             teste.inserir("É uma pessoa famosa?",true);
             teste.inserir("É uma pessoa presente nas redes sociais?",true);

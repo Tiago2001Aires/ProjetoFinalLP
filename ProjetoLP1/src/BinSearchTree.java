@@ -2,7 +2,7 @@ public class BinSearchTree {
     public NoBinTree raiz;
 
 
-    private void inserir(String num, NoBinTree pai, boolean pergunta) {
+    public void inserir(String num, NoBinTree pai, boolean pergunta) {
         NoBinTree classe = new NoBinTree(num);
         if (pergunta == true) {
             if (pai.getFilhoEsquerda() == null) {
