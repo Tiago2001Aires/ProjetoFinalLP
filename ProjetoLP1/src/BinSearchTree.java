@@ -1,5 +1,5 @@
 public class BinSearchTree {
-    private NoBinTree raiz;
+    public NoBinTree raiz;
 
 
     private void inserir(String num, NoBinTree pai, boolean pergunta) {
@@ -49,8 +49,7 @@ public class BinSearchTree {
         if (no.getFilhoEsquerda().setFilhoEsquerda() == num){
             return no;
         }else{
-            NoBinTree(no.getFilhoEsquerda(), num);
-            NoBinTree(no.getFilhoDireita(), num);
+            procurar(num,no.getFilhoEsquerda()&& no.getFilhoDireita());
         }
     }
     return no;
